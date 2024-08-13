@@ -1,0 +1,11 @@
+# Virtual Environment
+/.venv
+
+# Credentials
+lib/credentials/
+
+# IDE Settings
+/.vscode
+
+# IDE Settings
+/test_scripts/
