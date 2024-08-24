@@ -1,5 +1,5 @@
 # Virtual Environment
-/.venv
+/venv
 
 # Credentials
 lib/credentials/
@@ -7,5 +7,3 @@ lib/credentials/
 # IDE Settings
 /.vscode
 
-# IDE Settings
-/test_scripts/
