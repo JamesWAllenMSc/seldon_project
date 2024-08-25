@@ -7,3 +7,5 @@ lib/credentials/
 # IDE Settings
 /.vscode
 
+# Hide logs incase of sensitive info
+/logs

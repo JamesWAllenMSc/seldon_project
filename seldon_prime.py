@@ -9,3 +9,11 @@ __maintainer__ = "James Allen"
 __email__ = "jameswallenmsc@gmail.com"
 __status__ = "Development"
 
+
+import logging
+
+# Logging config
+logging.basicConfig(filename='logs/global_event.log', level=logging.INFO,
+                        format='Datetime:%(asctime)s - Level:%(levelname)s - Module:%(module)s - Function:%(funcName)s - Message:%(message)s')
+
+
