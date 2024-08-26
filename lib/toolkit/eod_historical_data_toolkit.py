@@ -23,6 +23,7 @@ def retrieve_exchanges(eodhd_api):
         url = f'https://eodhd.com/api/exchanges-list/?api_token={eodhd_api}&fmt=json'
         exc_data = requests.get(url).json()
         exc_data = pd.DataFrame(exc_data)
+        exc_data = exc_data[exc_data['Name'] != 'USA Stocks'] # Removing grouped US stocks
         return(exc_data)
     except Exception as e:
         logging.error(e)

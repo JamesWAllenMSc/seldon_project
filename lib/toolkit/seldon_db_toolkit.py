@@ -1,6 +1,7 @@
 from mysql.connector import connect
 from mysql.connector import Error
 import logging
+import pandas as pd
 
 
 def execute_query(access, query):
