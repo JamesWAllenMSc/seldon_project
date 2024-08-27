@@ -4,6 +4,7 @@ import logging
 import pandas as pd
 import numpy as np
 import requests
+import datetime
 
 # Logging config
 logging.basicConfig(filename='logs/global_event.log', level=logging.INFO,
@@ -44,6 +45,7 @@ exchange_data = toolkit.retrieve_exchanges(access.eodhd_api)
 # Workaround for EodHD grouping stock listings
 # Remove USA stocks from EodHD exchenge data
 exchange_data = exchange_data[exchange_data['Name'] != 'USA Stocks'] 
+print(exchange_data)
 # Manually enter US exchanges
 us_stocks = pd.DataFrame.from_dict({
     'Name':['New York Stock Exchange', 'NASDAQ'],
@@ -52,8 +54,15 @@ us_stocks = pd.DataFrame.from_dict({
     'Country':['US', 'US'],
     'Currency':['USD', 'USD'],
     'CountryISO2':['US', 'US'],
-    'CountryISO3':['USA', 'USA']
+    'CountryISO3':['USA', 'USA'],
+    'Source':['Manual_Input', 'Manual_Input'],
+    'Date_Updated':[datetime.datetime.now(), datetime.datetime.now()]
 })
+exchange_data = pd.concat([exchange_data, us_stocks], ignore_index=True)
+print(exchange_data)
+
+
+
 exchange_data = pd.concat([exchange_data, us_stocks], ignore_index=True)
 exchange_data_columns = exchange_data.columns.values
 exchange_data = exchange_data.replace({np.nan:'None'})
@@ -62,7 +71,12 @@ exchange_data = exchange_data.replace('[', '(').replace(']', ')')
 exchange_data = exchange_data[1:-1]
 
 columns = ', '.join(exchange_data_columns)
+print(columns)
+print(exchange_data)
+"""
 
+
+"""
 add_record_query = f'INSERT INTO global_exchanges ({columns}) VALUES {exchange_data};'
 toolkit.execute_query(access, add_record_query)
 

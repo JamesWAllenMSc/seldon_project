@@ -1,6 +1,7 @@
 import pandas as pd
 import requests
 import logging
+import datetime
 
 
 def retrieve_tickers(eodhd_api, exchange):
@@ -24,6 +25,21 @@ def retrieve_exchanges(eodhd_api):
         exc_data = requests.get(url).json()
         exc_data = pd.DataFrame(exc_data)
         exc_data = exc_data[exc_data['Name'] != 'USA Stocks'] # Removing grouped US stocks
+        exc_data['Source'] = 'EoDHA.com' # Adds Source column
+        exc_data['Date_Updated'] = datetime.datetime.now() # Adds timestampus_stocks = pd.DataFrame.from_dict({
+        # Add in individual US exchanges
+        us_stocks = pd.DataFrame.from_dict({
+            'Name':['New York Stock Exchange', 'NASDAQ'],
+            'Code':['NYSE', 'NASDAQ'],
+            'OperatingMIC':['XNYS', 'XNAS'],
+            'Country':['US', 'US'],
+            'Currency':['USD', 'USD'],
+            'CountryISO2':['US', 'US'],
+            'CountryISO3':['USA', 'USA'],
+            'Source':['Manual_Input', 'Manual_Input'],
+            'Date_Updated':[datetime.datetime.now(), datetime.datetime.now()]
+        })
+        exc_data = pd.concat([exc_data, us_stocks], ignore_index=True)
         return(exc_data)
     except Exception as e:
         logging.error(e)

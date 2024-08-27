@@ -29,7 +29,7 @@ def execute_query(access, query):
             with connection.cursor() as cursor:
                 cursor.execute(query)
                 connection.commit()
-            logging.info(f"Execution complete for query: {query}")
+            logging.debug(f"Execution complete for query: {query}")
             
     except Error as e:
         logging.error(e)
