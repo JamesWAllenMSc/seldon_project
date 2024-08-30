@@ -3,16 +3,13 @@ compares it to the list of exchanges held on EodHD.com. Any that are
 missing are added to the database.
 """
 
+
 import toolkit
 import credentials as access
 import logging
 import pandas as pd
 import numpy as np
 
-
-# Logging config
-logging.basicConfig(filename='logs/global_event.log', level=logging.INFO,
-                        format='Datetime:%(asctime)s - Level:%(levelname)s - Module:%(module)s - Function:%(funcName)s - Message:%(message)s')
 
 def exchanges_update():
     try:
@@ -21,7 +18,8 @@ def exchanges_update():
 
         # Declare columns for database
         db_columns = ['Name', 'Code', 'OperatingMIC', 'Country', 
-                    'Currency', 'CountryISO2', 'CountryISO3', 'Source', 'Date_Updated']
+                    'Currency', 'CountryISO2', 'CountryISO3', 'Source', 
+                    'Date_Updated']
         # Run query retrieving database with declared column names
         db_exchange_data = toolkit.retrieve_table(access, retrieve_table_query)
         db_exchange_data = pd.DataFrame(db_exchange_data, columns=db_columns)
@@ -55,7 +53,6 @@ def exchanges_update():
             # PREPARE MISSING EXCHANGES FOR UPLOAD TO SELDON_DB
             missing_exchanges_columns = missing_exchanges.columns.values
             columns = ', '.join(missing_exchanges_columns) # Columns prepped 
-
             missing_exchanges = missing_exchanges.replace({np.nan:'None'})
             missing_exchanges = str(missing_exchanges.values.tolist())
             missing_exchanges = missing_exchanges.replace('[', '(').replace(']', ')')
@@ -70,3 +67,4 @@ def exchanges_update():
 
     except Exception as e:
                 logging.error(e, exc_info=True)
+

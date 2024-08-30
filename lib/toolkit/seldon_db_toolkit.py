@@ -4,6 +4,7 @@ import logging
 import pandas as pd
 
 
+
 def execute_query(access, query):
     """ Takes database access credentials and an sql query and executes
     the query in the specified database.
@@ -58,4 +59,4 @@ def retrieve_table(access, query):
             return table
             
     except Error as e:
-        logging.error(e)
+        logging.error(e)  

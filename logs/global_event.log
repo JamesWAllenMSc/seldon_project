@@ -1,0 +1,3 @@
+Datetime:2024-08-28 16:16:43,686 - Level:INFO - Module:exchanges_update - Function:exchanges_update - Message:Exchanges checked, no new exchanges detected
+Datetime:2024-08-28 16:26:53,461 - Level:INFO - Module:exchanges_update - Function:exchanges_update - Message:Exchanges checked, 79 exchanges added to seldon_db
+Datetime:2024-08-28 16:30:06,902 - Level:INFO - Module:exchanges_update - Function:exchanges_update - Message:Exchanges checked, 1 exchanges added to seldon_db
