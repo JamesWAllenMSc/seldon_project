@@ -16,6 +16,7 @@ import sys
 sys.path.append('/home/jamesallen/projects/seldon_project/lib')
 
 from lib.exchanges_update import exchanges_update
+from lib.ticker_update import ticker_update
 
 # Logging config
 logging.basicConfig(filename='logs/global_event.log', level=logging.INFO,
@@ -23,4 +24,5 @@ logging.basicConfig(filename='logs/global_event.log', level=logging.INFO,
 
 
 exchanges_update()
+ticker_update()
 

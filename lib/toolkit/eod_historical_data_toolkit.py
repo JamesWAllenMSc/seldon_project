@@ -12,6 +12,10 @@ def retrieve_tickers(eodhd_api, exchange):
     try:
         ticker_data = requests.get(url).json()
         ticker_data = pd.DataFrame(ticker_data)
+        ticker_data['Source'] = 'EoDHD.com' # Adds Source column
+        ticker_data['Date_Updated'] = datetime.datetime.now() # Adds timestamp
+        ticker_data['Ticker_ID'] = ticker_data['Code']+ticker_data['Exchange']
+        print['Ticker_ID']
         return ticker_data
     except Exception as e:
         logging.error(e)

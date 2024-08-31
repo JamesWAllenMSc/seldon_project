@@ -18,7 +18,7 @@ def exchanges_update():
 
         # Declare columns for database
         db_columns = ['Name', 'Code', 'OperatingMIC', 'Country', 
-                    'Currency', 'CountryISO2', 'CountryISO3', 'Source', 
+                    'Exchange', 'Currency', 'CountryISO2', 'CountryISO3', 'Source', 
                     'Date_Updated']
         # Run query retrieving database with declared column names
         db_exchange_data = toolkit.retrieve_table(access, retrieve_table_query)
@@ -35,9 +35,9 @@ def exchanges_update():
         db_col_array = np.array(db_columns)
 
         if np.array_equal(headers_eod, db_col_array):
-            logging.debug(f"EodHD / Seldon_DB header check: COMPLETE")
+            logging.debug(f"EodHD / Seldon_DB Exchanges column check: COMPLETE")
         else:
-            logging.error(f"EodHD / Seldon_DB column check: FAILED")
+            logging.error(f"EodHD / Seldon_DB Exchanges column check: FAILED")
             exit
 
         # FILTER EXCHANGES MISSING FROM SELDON_DB
