@@ -1,7 +1,5 @@
-Datetime:2024-08-31 12:59:00,651 - Level:ERROR - Module:exchanges_update - Function:exchanges_update - Message:EodHD / Seldon_DB column check: FAILED
-Datetime:2024-08-31 12:59:00,692 - Level:INFO - Module:exchanges_update - Function:exchanges_update - Message:Exchanges checked, 79 exchanges added to seldon_db
-Datetime:2024-08-31 12:59:01,409 - Level:ERROR - Module:eod_historical_data_toolkit - Function:retrieve_tickers - Message:'builtin_function_or_method' object is not subscriptable
-Datetime:2024-08-31 12:59:01,409 - Level:ERROR - Module:ticker_update - Function:ticker_update - Message:'NoneType' object has no attribute 'columns'
+Datetime:2024-08-31 15:43:21,400 - Level:ERROR - Module:eod_historical_data_toolkit - Function:retrieve_tickers - Message:'builtin_function_or_method' object is not subscriptable
+Datetime:2024-08-31 15:43:21,400 - Level:ERROR - Module:ticker_update - Function:ticker_update - Message:'NoneType' object has no attribute 'columns'
 Traceback (most recent call last):
   File "/home/jamesallen/projects/seldon_project/lib/ticker_update.py", line 43, in ticker_update
     headers_eod = ticker_data_eod.columns.values
