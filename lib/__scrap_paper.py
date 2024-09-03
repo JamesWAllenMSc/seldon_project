@@ -13,11 +13,11 @@ logging.basicConfig(filename='logs/global_event.log', level=logging.INFO,
 
 
 
-"""
+
 # Test ticker retrieval
-ticker_data = toolkit.retrieve_tickers(access.eodhd_api, 'NYSE')
+ticker_data = toolkit.retrieve_tickers(access.eodhd_api, 'MONEY')
 print(ticker_data)
-"""
+
 
 """
 # Test 'exchange_retrieval'

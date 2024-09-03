@@ -23,6 +23,6 @@ logging.basicConfig(filename='logs/global_event.log', level=logging.INFO,
                         format='Datetime:%(asctime)s - Level:%(levelname)s - Module:%(module)s - Function:%(funcName)s - Message:%(message)s')
 
 
-# exchanges_update()
+exchanges_update()
 ticker_update()
 

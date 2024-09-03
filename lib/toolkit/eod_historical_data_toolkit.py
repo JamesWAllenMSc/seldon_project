@@ -15,10 +15,13 @@ def retrieve_tickers(eodhd_api, exchange):
         ticker_data['Source'] = 'EoDHD.com' # Adds Source column
         ticker_data['Date_Updated'] = datetime.datetime.now() # Adds timestamp
         ticker_data['Ticker_ID'] = ticker_data['Code']+ticker_data['Exchange']
-        print['Ticker_ID']
+        ticker_columns = ['Ticker_ID', 'Code', 'Name', 'Country', 'Exchange',
+                        'Currency', 'Type', 'Isin', 'Source',
+                        'Date_Updated']
+        ticker_data = ticker_data[ticker_columns]
         return ticker_data
     except Exception as e:
-        logging.error(e)
+        logging.error(f'Exchange: {exchange} -  {e}', exc_info=True)
 
 
 def retrieve_exchanges(eodhd_api):
@@ -46,4 +49,4 @@ def retrieve_exchanges(eodhd_api):
         exc_data = pd.concat([exc_data, us_stocks], ignore_index=True)
         return(exc_data)
     except Exception as e:
-        logging.error(e)
+        logging.error(e, exc_info=True)  

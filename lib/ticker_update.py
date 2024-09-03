@@ -18,7 +18,6 @@ def ticker_update():
     table = pd.DataFrame(table, columns=col_name)
     exchange_list = table['Code'].to_list()
     logging.debug(f"Exchanges retrieved from seldon_db.global_exchanges")
-
     # ITERATE OVER EXCHANGES LIST RETRIEVING TICKERS FOR EACH EXCHANGE 
     # ON BOTH SELDON_DB AND EODHD.COM
     total_tickers = 0 # Start count of tickers for logging
@@ -79,3 +78,5 @@ def ticker_update():
             logging.info(f"Tickers checked, no new tickers detected")
     except Exception as e:
         logging.error(e, exc_info=True)
+
+# ticker_update()

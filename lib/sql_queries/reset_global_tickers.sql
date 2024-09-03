@@ -2,9 +2,9 @@ DROP TABLE global_tickers;
 
 CREATE TABLE global_tickers
 (
-    Ticker_ID VARCHAR(25),
-    Code VARCHAR(15),
-    Name VARCHAR(150),
+    Ticker_ID VARCHAR(50),
+    Code VARCHAR(50),
+    Name VARCHAR(250),
     Country VARCHAR(15),
     Exchange VARCHAR(15),
     Currency VARCHAR(15),

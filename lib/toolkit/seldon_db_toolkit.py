@@ -33,7 +33,7 @@ def execute_query(access, query):
             logging.debug(f"Execution complete for query: {query}")
             
     except Error as e:
-        logging.error(e)
+        logging.error(e, exc_info=True)  
 
 
 def retrieve_table(access, query):
@@ -59,4 +59,4 @@ def retrieve_table(access, query):
             return table
             
     except Error as e:
-        logging.error(e)  
+        logging.error(e, exc_info=True)  

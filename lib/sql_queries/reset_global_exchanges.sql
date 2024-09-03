@@ -3,7 +3,7 @@ DROP TABLE global_exchanges;
 CREATE TABLE global_exchanges
 (
     Name VARCHAR(50),
-    Code VARCHAR(15),
+    Code VARCHAR(25),
     OperatingMIC VARCHAR(15),
     Country VARCHAR(50),
     Currency VARCHAR(15),

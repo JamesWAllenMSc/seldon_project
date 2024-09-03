@@ -17,8 +17,8 @@ def exchanges_update():
         retrieve_table_query = 'SELECT * FROM global_exchanges;'
 
         # Declare columns for database
-        db_columns = ['Name', 'Code', 'OperatingMIC', 'Country', 
-                    'Exchange', 'Currency', 'CountryISO2', 'CountryISO3', 'Source', 
+        db_columns = ['Name', 'Code', 'OperatingMIC', 'Country',
+                    'Currency', 'CountryISO2', 'CountryISO3', 'Source', 
                     'Date_Updated']
         # Run query retrieving database with declared column names
         db_exchange_data = toolkit.retrieve_table(access, retrieve_table_query)
@@ -27,13 +27,17 @@ def exchanges_update():
 
         # RETRIEVE EXCHANGE LIST FROM EOD.COM
         eod_exchange_data = toolkit.retrieve_exchanges(access.eodhd_api)
+        # Drop unused exchenges
+        exchanges_drop_list = ['MONEY', 'BRVM']
+        for exchange in exchanges_drop_list:
+                index_to_drop = eod_exchange_data[eod_exchange_data['Code'] == exchange].index
+                eod_exchange_data = eod_exchange_data.drop(index_to_drop)
         logging.debug(f"Data retrieved from EoDHD.com")
 
         # CHECK THERE ARE NO CHANGES TO HEADERS
         logging.debug("Checking header changes")
         headers_eod = eod_exchange_data.columns.values
         db_col_array = np.array(db_columns)
-
         if np.array_equal(headers_eod, db_col_array):
             logging.debug(f"EodHD / Seldon_DB Exchanges column check: COMPLETE")
         else:
