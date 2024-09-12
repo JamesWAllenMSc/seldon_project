@@ -73,7 +73,7 @@ def ticker_update():
                 pass
                 
         if total_tickers > 0:
-            logging.info(f"Exchanges checked, {total_tickers} exchanges added to seldon_db")
+            logging.info(f"Exchanges checked, {total_tickers} tickers added to seldon_db")
         else:
             logging.info(f"Tickers checked, no new tickers detected")
     except Exception as e:
