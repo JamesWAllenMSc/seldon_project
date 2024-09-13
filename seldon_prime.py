@@ -13,7 +13,10 @@ __status__ = "Development"
 import logging
 import sys
 
-sys.path.append('/home/jamesallen/projects/seldon_project/lib')
+# sys.path.append('/home/jamesallen/projects/seldon_project/lib') # Laptop
+sys.path.append('home/jamesallen/projects/seldon_project/lib')
+
+
 
 from lib.exchanges_update import exchanges_update
 from lib.ticker_update import ticker_update

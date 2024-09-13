@@ -6,3 +6,7 @@ lib/credentials/
 
 # IDE Settings
 /.vscode
+
+# PyCache
+**/__pycache__/
+
