@@ -13,8 +13,7 @@ __status__ = "Development"
 import logging
 import sys
 
-# sys.path.append('/home/jamesallen/projects/seldon_project/lib') # Laptop
-sys.path.append('home/jamesallen/projects/seldon_project/lib') # PC
+sys.path.append('/home/jamesallen/projects/seldon_project/lib')
 
 
 
