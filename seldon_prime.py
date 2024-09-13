@@ -14,7 +14,7 @@ import logging
 import sys
 
 # sys.path.append('/home/jamesallen/projects/seldon_project/lib') # Laptop
-sys.path.append('home/jamesallen/projects/seldon_project/lib')
+sys.path.append('home/jamesallen/projects/seldon_project/lib') # PC
 
 
 
