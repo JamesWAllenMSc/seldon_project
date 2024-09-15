@@ -79,4 +79,3 @@ def ticker_update():
     except Exception as e:
         logging.error(e, exc_info=True)
 
-# ticker_update()
