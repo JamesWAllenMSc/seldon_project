@@ -26,7 +26,7 @@ def exchanges_update():
         logging.debug(f"Data retrieved from seldon_db and processed")
 
         # RETRIEVE EXCHANGE LIST FROM EOD.COM
-        eod_exchange_data = toolkit.retrieve_exchanges(access.eodhd_api)
+        eod_exchange_data = toolkit.retrieve_exchanges(access, access.eodhd_api)
         # Drop unused exchenges
         exchanges_drop_list = ['MONEY', 'BRVM']
         for exchange in exchanges_drop_list:

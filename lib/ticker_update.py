@@ -34,7 +34,7 @@ def ticker_update():
             logging.debug(f"Tickers retrieved from seldon_db.global_tickers")
             
             # Request ticker codes from eodhd.com filtered by exchange code
-            ticker_data_eod = toolkit.retrieve_tickers(access.eodhd_api, exchange_code) # Gets ticker list according to exchenge
+            ticker_data_eod = toolkit.retrieve_tickers(access, access.eodhd_api, exchange_code) # Gets ticker list according to exchenge
             logging.debug(f"Data retrieved from EoDHD.com")
             
             # CHECK THERE ARE NO CHANGES TO HEADERS
@@ -78,4 +78,3 @@ def ticker_update():
             logging.info(f"Tickers checked, no new tickers detected")
     except Exception as e:
         logging.error(e, exc_info=True)
-
