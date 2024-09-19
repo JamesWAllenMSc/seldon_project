@@ -11,7 +11,7 @@ CREATE TABLE api_call_count
 
 INSERT INTO api_call_count -- Confirm APIs remaining before deployment
     VALUES ('Daily APIs', 0),
-            ('Extra APIs', 97395);
+            ('Extra APIs', 97259);
 
 
 -- Reset global_exchanges table
