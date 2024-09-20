@@ -12,8 +12,8 @@ import numpy as np
 
 
 def exchanges_update():
-    apis_remaining = toolkit.retrieve_api_count
-    while apis_remaining > 0:
+    apis_remaining = toolkit.retrieve_api_count(access)
+    if apis_remaining > 0:
         try:
             # RETRIEVE EXCHANGE DATA FROM SERVER
             retrieve_table_query = 'SELECT * FROM global_exchanges;'
@@ -28,7 +28,7 @@ def exchanges_update():
             logging.debug(f"Data retrieved from seldon_db and processed")
 
             # RETRIEVE EXCHANGE LIST FROM EOD.COM
-            eod_exchange_data = toolkit.retrieve_exchanges(access, access.eodhd_api)
+            eod_exchange_data = toolkit.retrieve_exchanges(access.eodhd_api)
             apis_remaining = apis_remaining - 1
             # Drop unused exchenges
             exchanges_drop_list = ['MONEY', 'BRVM']
@@ -74,6 +74,7 @@ def exchanges_update():
             toolkit.update_api_count(access, apis_remaining)
         except Exception as e:
                     logging.error(e, exc_info=True)
+    
     else:
          logging.info(f"Ran out of API calls while executing exchanges_update.py")
          

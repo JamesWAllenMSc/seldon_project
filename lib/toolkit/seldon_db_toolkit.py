@@ -72,12 +72,10 @@ def update_api_count(access, apis_used):
     daily_apis = api_call_count.iloc[0,1]
     extra_apis = api_call_count.iloc[1,1]
     apis_remaining = daily_apis - apis_used
-    
-    
+
     if apis_remaining <= 0:
         daily_apis_remaining = 0 
-        apis_used = abs(apis_remaining)
-        extra_apis_remaining = extra_apis - apis_used
+        extra_apis_remaining = abs(apis_remaining)
     
     elif apis_remaining > 0:
         daily_apis_remaining = apis_remaining

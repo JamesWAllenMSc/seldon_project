@@ -11,7 +11,7 @@ import numpy as np
 
 
 def ticker_update():
-    apis_remaining = toolkit.retrieve_api_count
+    apis_remaining = toolkit.retrieve_api_count(access)
     while apis_remaining > 0:
         # GET EXCHANGES LIST FROM SELDON_DB
         table_query = 'SELECT Code FROM global_exchanges;'
@@ -36,7 +36,7 @@ def ticker_update():
                 logging.debug(f"Tickers retrieved from seldon_db.global_tickers")
                 
                 # Request ticker codes from eodhd.com filtered by exchange code
-                ticker_data_eod = toolkit.retrieve_tickers(access, access.eodhd_api, exchange_code) # Gets ticker list according to exchenge
+                ticker_data_eod = toolkit.retrieve_tickers(access.eodhd_api, exchange_code) # Gets ticker list according to exchenge
                 apis_remaining = apis_remaining - 1
                 logging.debug(f"Data retrieved from EoDHD.com")
                 
