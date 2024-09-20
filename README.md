@@ -8,7 +8,7 @@ Tools and technologies used:
 - MariaDB
 - SQL / MySQL
 
-Any enquiries relating to this project can be directed to jamesallenmsc@protonmail.com
+Any enquiries relating to this project can be directed to jamesallenmsc@gmail.com
 
 With thanks,
 
